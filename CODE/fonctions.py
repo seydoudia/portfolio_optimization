@@ -22,8 +22,8 @@ def read_file(path, sep=",", index="timestamp"):
 	df = pd.read_csv(path, sep=",")
 	if "timestamp" in df.columns:
 		df["timestamp"] = df["timestamp"].apply(lambda x: dt.datetime.strptime(x,"%Y-%m-%d"))
-		df.set_index("timestamp", inplace=True)
 	df.set_index(index, inplace=True)
+	
 	return df
 
 	
