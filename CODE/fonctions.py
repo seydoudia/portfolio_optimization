@@ -66,3 +66,31 @@ def select_stock(stock_df, carbon_df, best=5, dropfinance=True):
     out_tab = flatten(out_tab)
     
     return stock_df[out_tab], out_dic
+
+# Input: tableau stock déjà préselectioné 
+# Output: tableau de rendement et tableau de risk 
+def equaly_weighted(df, weeks=12):
+    no_assets = len(df.columns)
+    weights = [1/no_assets for i in range(no_assets)]
+    #ret est le tableau de rendement 
+    ret = df.pct_change().dropna()
+    
+    #Commande pour trouver rendement 2 possibilités 
+    #ret_mean = ret.mean(axis=1)
+    ret_week = ret.mul(weights, axis="columns").sum(axis=1)
+    
+    # Find the average of each 12 weeks
+    df_summary_mean = pd.DataFrame(index = range(len(ret_week)//12), columns = df.columns)
+    df_summary_std = pd.DataFrame(index = range(len(ret_week)//12), columns = df.columns)
+    out_tab_mean = [0]*(len(ret_week)//12)
+    out_tab_std = [0]*(len(ret_week)//12)
+
+    for i in range(len(ret_week)//12):
+        out_tab_mean[i] = ret_week.iloc[i*12:(i+1)*12].mean()                 #portofolio mean
+        df_summary_mean.iloc[i] = ret.iloc[i*12 : (i+1)*12].mean()            #stock mean
+        out_tab_std[i] = ret_week.iloc[i*12:(i+1)*12].std()
+        df_summary_std.iloc[i] = ret.iloc[i*12 : (i+1)*12].std()
+    df_summary_mean["ewp_rendement"] = out_tab_mean
+    df_summary_std["ewp_risk"] = out_tab_std
+    
+    return df_summary_mean, df_summary_std 
