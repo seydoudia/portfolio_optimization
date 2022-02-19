@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pandas as pd
 import datetime as dt
 import numpy as np
@@ -38,7 +39,7 @@ def read_file(path, sep=",", index="timestamp"):
 def flatten(tab):
     """Function that flattens list of list"""
     return [item for subtab in tab for item in subtab]
-    
+
 
 def select_stock(stock_df, carbon_df, best=5, dropfinance=True):
     """ 
@@ -80,16 +81,16 @@ def equaly_weighted(df, weeks=12):
     ret_week = ret.mul(weights, axis="columns").sum(axis=1)
     
     # Find the average of each 12 weeks
-    df_summary_mean = pd.DataFrame(index = range(len(ret_week)//12), columns = df.columns)
-    df_summary_std = pd.DataFrame(index = range(len(ret_week)//12), columns = df.columns)
-    out_tab_mean = [0]*(len(ret_week)//12)
-    out_tab_std = [0]*(len(ret_week)//12)
+    df_summary_mean = pd.DataFrame(index = range(len(ret_week)//weeks), columns = df.columns)
+    df_summary_std = pd.DataFrame(index = range(len(ret_week)//weeks), columns = df.columns)
+    out_tab_mean = [0]*(len(ret_week)//weeks)
+    out_tab_std = [0]*(len(ret_week)//weeks)
 
-    for i in range(len(ret_week)//12):
-        out_tab_mean[i] = ret_week.iloc[i*12:(i+1)*12].mean()                 #portofolio mean
-        df_summary_mean.iloc[i] = ret.iloc[i*12 : (i+1)*12].mean()            #stock mean
-        out_tab_std[i] = ret_week.iloc[i*12:(i+1)*12].std()
-        df_summary_std.iloc[i] = ret.iloc[i*12 : (i+1)*12].std()
+    for i in range(len(ret_week)//weeks):
+        out_tab_mean[i] = ret_week.iloc[i*weeks:(i+1)*weeks].mean()                 #portofolio mean
+        df_summary_mean.iloc[i] = ret.iloc[i*weeks : (i+1)*weeks].mean()            #stock mean
+        out_tab_std[i] = ret_week.iloc[i*weeks:(i+1)*weeks].std()
+        df_summary_std.iloc[i] = ret.iloc[i*weeks : (i+1)*weeks].std()
     df_summary_mean["ewp_rendement"] = out_tab_mean
     df_summary_std["ewp_risk"] = out_tab_std
     
