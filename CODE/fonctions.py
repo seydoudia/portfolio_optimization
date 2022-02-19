@@ -56,14 +56,18 @@ def select_stock(stock_df, carbon_df, best=5, dropfinance=True):
     """
     out_dic = {}
     out_tab = []
+    
+    carbon_df = carbon_df.loc[stock_df.columns]
+    
     if dropfinance:
-        carbon_df.drop(columns="Finance")
-        
+        carbon_df = carbon_df[carbon_df["sector_name"] != "Financial"]
+    
+    
     for i, sector in enumerate(carbon_df["sector_name"].unique()):
-
+    
         out_tab.append(carbon_df.loc[carbon_df["sector_name"] == sector].nsmallest(5, "intensity").index.tolist())
         out_dic[sector] = carbon_df.loc[carbon_df["sector_name"] == sector].nsmallest(5, "intensity").index.tolist()
-
+    
     out_tab = flatten(out_tab)
     
     return stock_df[out_tab], out_dic
