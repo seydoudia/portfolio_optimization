@@ -74,7 +74,16 @@ def select_stock(stock_df, carbon_df, best=5, dropfinance=True):
 
 # Input: tableau stock déjà préselectioné 
 # Output: tableau de rendement et tableau de risk 
-def equaly_weighted(df, weeks=12):
+def equally_weighted(df, weeks=12):
+    """Function that computes return and risk over a given number of weeks
+    Parameters;
+        df(Pandas.Dataframe):dataframe with stock data
+        weeks(int): number of weeks on which to compute return
+        
+        Returns:
+            df_summary_mean: table with return
+            df_summary_std: table with standard deviation 
+    """
     no_assets = len(df.columns)
     weights = [1/no_assets for i in range(no_assets)]
     #ret est le tableau de rendement 
@@ -85,14 +94,14 @@ def equaly_weighted(df, weeks=12):
     ret_week = ret.mul(weights, axis="columns").sum(axis=1)
     
     # Find the average of each 12 weeks
-    df_summary_mean = pd.DataFrame(index = range(len(ret_week)//weeks), columns = df.columns)
-    df_summary_std = pd.DataFrame(index = range(len(ret_week)//weeks), columns = df.columns)
+    df_summary_mean = pd.DataFrame(index=range(len(ret_week)//weeks), columns=df.columns)
+    df_summary_std = pd.DataFrame(index=range(len(ret_week)//weeks), columns=df.columns)
     out_tab_mean = [0]*(len(ret_week)//weeks)
     out_tab_std = [0]*(len(ret_week)//weeks)
 
     for i in range(len(ret_week)//weeks):
-        out_tab_mean[i] = ret_week.iloc[i*weeks:(i+1)*weeks].mean()                 #portofolio mean
-        df_summary_mean.iloc[i] = ret.iloc[i*weeks : (i+1)*weeks].mean()            #stock mean
+        out_tab_mean[i] = ret_week.iloc[i*weeks:(i+1)*weeks].mean() # Portofolio mean
+        df_summary_mean.iloc[i] = ret.iloc[i*weeks : (i+1)*weeks].mean() # Stock mean
         out_tab_std[i] = ret_week.iloc[i*weeks:(i+1)*weeks].std()
         df_summary_std.iloc[i] = ret.iloc[i*weeks : (i+1)*weeks].std()
     df_summary_mean["ewp_rendement"] = out_tab_mean
