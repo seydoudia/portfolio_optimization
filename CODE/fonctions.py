@@ -108,3 +108,4 @@ def equally_weighted(df, weeks=12):
     df_summary_std["ewp_risk"] = out_tab_std
     
     return df_summary_mean, df_summary_std 
+
