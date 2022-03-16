@@ -91,8 +91,9 @@ def equally_weighted(df, weeks=12):
     
     #Commande pour trouver rendement 2 possibilités 
     #ret_mean = ret.mean(axis=1)
-    ret_week = ret.mul(weights, axis="columns").sum(axis=1)
+    ret_week = ret.mul(weights, axis="columns").sum(axis=1)*100
     
+    return ret_week
     # Find the average of each 12 weeks
     df_summary_mean = pd.DataFrame(index=range(len(ret_week)//weeks), columns=df.columns)
     df_summary_std = pd.DataFrame(index=range(len(ret_week)//weeks), columns=df.columns)
