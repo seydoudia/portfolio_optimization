@@ -24,7 +24,7 @@ The KPIs computed are :
 - Excess Return
 
 The entire project was developed from scratch and conducted in French The report notebook can be found in the code folder under the name of [RAPPORT_DIA_MILADINOVA_PROJET_FINANCE.ipynb](https://github.com/seydoudia/portfolio_optimization/blob/main/CODE/RAPPORT_DIA_MILADINOVA_PROJET_FINANCE.ipynb)
-This project was conducted during the Msc. in Energy Systems Optimization of Mines Paris in collaboration with [Ms. Simona MILADINOVA](https://www.linkedin.com/in/simona-miladinova-839b8a17a/) and [Seydou DIA](https://seydoudia.github.io/Data-Science-portfolio/) under the supervising of [Mr. MARTELLINI](https://www.edhec.edu/fr/corps-professoral-et-chercheurs/martellini-lionel-phd), Head of  EDHEC Risk-Institute, as part of the Sustainable Finance course. 
+This project was conducted during the Msc. in Energy Systems Optimization of Mines Paris in collaboration with [Ms. Simona MILADINOVA](https://www.linkedin.com/in/simona-miladinova-839b8a17a/) and [Mr. Seydou DIA](https://seydoudia.github.io/Data-Science-portfolio/) under the supervising of [Mr. MARTELLINI](https://www.edhec.edu/fr/corps-professoral-et-chercheurs/martellini-lionel-phd), Head of  EDHEC Risk-Institute, as part of the Sustainable Finance course. 
 
 If the reader wishes to dig further into the project other data can be found in the CODE folder
 
