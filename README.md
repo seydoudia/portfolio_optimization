@@ -40,4 +40,4 @@ For the results tables, they can be found in the PROC_DATA folder :
 - The dic_metrics and dic2use file represent the metrics computed with and without carbon penalization.
 
 
-For more project on Data Science, Energy and Sustainability, follow this [link](https://seydoudia.github.io/Data-Science-portfolio/)
+For more projects on Data Science, Energy and Sustainability, follow this [link](https://seydoudia.github.io/Data-Science-portfolio/)
