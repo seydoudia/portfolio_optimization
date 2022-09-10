@@ -13,7 +13,17 @@ Each strategy optimizes the weights on 2 years of training data and performs the
 The assets are initially selected by taking into account the 5 best assets with the lowest carbon footprint from each of the 10 sectors of the S&P500.Thus, each portfolio has the same 50 assets. 
 Then, for each optimization strategy, the objective functions are penalized by each asset's carbon footprint. The result are then analyzed. 
 
-The entire project was conducted in French and the report notebook can be found in the code folder under the name of RAPPORT_DIA_MILADINOVA_PROJET_FINANCE.ipynb 
+The KPIs computed are : 
+
+- Return
+- Volatility
+- Information Ratio
+- Diversification Index
+- Sharp Ratio
+- Tracking Error
+- Excess Return
+
+The entire project was developed from scratch and conducted in French The report notebook can be found in the code folder under the name of [RAPPORT_DIA_MILADINOVA_PROJET_FINANCE.ipynb](https://github.com/seydoudia/portfolio_optimization/blob/main/CODE/RAPPORT_DIA_MILADINOVA_PROJET_FINANCE.ipynb)
 This project was conducted during the Msc. in Energy Systems Optimization of Mines Paris in collaboration with [Ms. Simona MILADINOVA](https://www.linkedin.com/in/simona-miladinova-839b8a17a/) and [Seydou DIA](https://seydoudia.github.io/Data-Science-portfolio/) under the supervising of [Mr. MARTELLINI](https://www.edhec.edu/fr/corps-professoral-et-chercheurs/martellini-lionel-phd), Head of  EDHEC Risk-Institute, as part of the Sustainable Finance course. 
 
 If the reader wishes to dig further into the project other data can be found in the CODE folder
