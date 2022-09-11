@@ -2,7 +2,7 @@
 
 Building S&P500 portfolios with and without carbon footprint penalization. 
 
-In this project, we analyze different asset management strategies as well as KPIs to compare them. The project simulates investment strategies througout a duration of 20 year with the following models : 
+In this project, we analyze different asset management strategies as well as KPIs to compare them. The project simulates investment strategies througout a duration of 20 years with the following models : 
 - EW : equally weighted
 - GMW : global minimum variance
 - MAXDECOR : max decorrelation
