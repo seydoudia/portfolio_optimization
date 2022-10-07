@@ -7,7 +7,7 @@ In this project, we analyze different asset management strategies as well as KPI
 - GMW : global minimum variance
 - MAXDECOR : max decorrelation
 - MAXDIV : max diversification
-- MSR : maximum sharp ratio
+- MSR : maximum sharpe ratio
 
 Each strategy optimizes the weights on 2 years of training data and performs the validation on the following three months. The rolling window is also of three months which makes a total of 78 different optimizations throughout the entire simulation for each strategy. 
 The assets are initially selected by taking into account the 5 best assets with the lowest carbon footprint from each of the 10 sectors of the S&P500.Thus, each portfolio has the same 50 assets. 
@@ -19,7 +19,7 @@ The KPIs computed are :
 - Volatility
 - Information Ratio
 - Diversification Index
-- Sharp Ratio
+- Sharpe Ratio
 - Tracking Error
 - Excess Return
 
